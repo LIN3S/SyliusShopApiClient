@@ -1,0 +1,56 @@
+{
+  "name": "lin3s-sylius-shop-api-client",
+  "version": "0.1.0",
+  "author": "LIN3S",
+  "license": "MIT",
+  "description": "JavaScript client on top of SyliusShopApiPlugin to build integrations with ease.",
+  "keywords": [
+    "lin3s",
+    "sylius",
+    "shop",
+    "api",
+    "js",
+    "client"
+  ],
+  "main": "dist/common/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "phoenix": "rimraf node_modules && yarn install",
+    "prebuild": "rimraf dist",
+    "eslint": "node_modules/.bin/eslint src/js/**/*.js",
+    "cs": "yarn eslint",
+    "common-bundle": "node_modules/.bin/babel --copy-files --out-dir dist/common src",
+    "esm-bundle": "cp -R src/ dist/esm",
+    "build": "yarn prebuild && mkdirp dist && yarn cs && yarn common-bundle && yarn esm-bundle"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-2": "^6.13.0",
+    "eslint": "^4.7.2",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-class-property": "^1.0.6",
+    "rimraf": "^2.5.4"
+  },
+  "dependencies": {
+    "uuid": "^3.2.1",
+    "axios": "^0.18.0",
+    "react-cookies": "^0.1.0"
+  }
+}

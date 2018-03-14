@@ -19,12 +19,11 @@ module.exports = {
     "ecmaFeatures": {
       "classes": true,
       "experimentalObjectRestSpread": true,
-      "jsx": true,
       "modules": true,
       "templateStrings": true
     }
   },
-  "plugins": ["react", "class-property", "babel"],
+  "plugins": ["class-property", "babel"],
   "rules": {
     "arrow-body-style": "off",
     "indent": ["error", 2, {"SwitchCase": 1}],
@@ -176,32 +175,5 @@ module.exports = {
     "prefer-template": "error",
     "require-yield": "error",
     "babel/semi": "error",
-    "react/display-name": "off",
-    "react/forbid-prop-types": "off",
-    "react/jsx-boolean-value": "off",
-    "react/jsx-closing-bracket-location": "off",
-    "react/jsx-curly-spacing": "off",
-    "react/jsx-indent-props": "off",
-    "react/jsx-max-props-per-line": "off",
-    "react/jsx-no-duplicate-props": "error",
-    "react/jsx-no-literals": "off",
-    "react/jsx-no-undef": "error",
-    "jsx-quotes": "error",
-    "react/jsx-sort-props": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "react/no-danger": "error",
-    "react/no-did-mount-set-state": "error",
-    "react/no-did-update-set-state": "error",
-    "react/no-direct-mutation-state": "error",
-    "react/no-set-state": "off",
-    "react/no-unknown-property": "error",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/require-extension": "off",
-    "react/self-closing-comp": "off",
-    "react/sort-comp": "off",
-    "react/sort-prop-types": "error",
-    "react/wrap-multilines": "off"
   }
 };

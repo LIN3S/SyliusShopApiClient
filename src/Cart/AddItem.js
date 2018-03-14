@@ -4,25 +4,27 @@ import Session from "../Session";
 import createCart from './Pickup';
 import {contentTypeJson} from '../requestConfig';
 
-export default config => async ({productCode, variantCode, quantity}) => {
-  let cartId = null;
-
-  try {
-    cartId = Session.Cart.id();
-  } catch (exception) {
-    const cart = await createCart();
-    cartId = cart.tokenValue;
-  }
-
+const addItem = (cartId, data, config, resolve) => {
   const headers = {
     ...contentTypeJson(config),
   };
 
-  const response = await axios.post(
+  axios.post(
     `${config.baseUrl}/shop-api/carts/${cartId}/items`,
-    JSON.stringify({productCode, variantCode, quantity}),
+    JSON.stringify(data),
     headers
-  );
+  ).then(response => resolve(response.data));
+};
 
-  return response.data;
+export default config => ({productCode, variantCode, quantity}) => {
+  return new Promise(resolve => {
+    try {
+      const cartId = Session.Cart.id();
+      addItem(cartId, {productCode, variantCode, quantity}, config, resolve);
+    } catch (exception) {
+      createCart().then(cart => {
+        addItem(cart.tokenValue, {productCode, variantCode, quantity}, config, resolve);
+      });
+    }
+  });
 };

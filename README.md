@@ -38,6 +38,32 @@ an object containing slug property and its value):
 const products = api.taxon().productsByTaxonSlug({slug: 'some-slug'});
 ```
 
+**Adding custom endpoints**
+
+In case a new endpoint is created in shop-api you can still use the configuration of the client. Your custom function
+will receive the config via parameters and it must return a function. This function has to be passed in the constructor.
+An example:
+
+```js
+import axios from 'axios';
+
+const myCustomEndpoint = config => () => new Promise(resolve => {
+  axios.get(`${config.baseUrl}/shop-api/my-custom-endpoint`)
+    .then(response => resolve(response.data));
+});
+
+const api = createSyliusApiClient({
+  baseUrl: 'localhost',
+  channel: 'default',
+  customEndpoints: {
+    myCustomEndpoint
+  }
+});
+
+// Usage
+const response = api.custom().myCustomEndpoint();
+```
+
 ## API
 
 ### Cart `api.cart()`

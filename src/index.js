@@ -13,7 +13,7 @@ import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
 import login from './User/Login';
 
-export default (config) => ({
+export default ({customEndpoints = {}, ...config}) => ({
   cart: () => ({
     pickup: cartPickup(config),
     summary: cartSummary(config),
@@ -34,4 +34,5 @@ export default (config) => ({
   user: () => ({
     login: login(config),
   }),
+  custom: () => Object.keys(customEndpoints).map((key) => customEndpoints[key](config))
 });

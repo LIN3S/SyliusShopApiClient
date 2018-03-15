@@ -1,3 +1,5 @@
+import mapValues from 'lodash.mapvalues';
+
 import cartPickup from './Cart/Pickup';
 import cartSummary from './Cart/Summary';
 import cartAddItem from './Cart/AddItem';
@@ -34,5 +36,5 @@ export default ({customEndpoints = {}, ...config}) => ({
   user: () => ({
     login: login(config),
   }),
-  custom: () => Object.keys(customEndpoints).map((key) => customEndpoints[key](config))
+  custom: () => mapValues(customEndpoints, (endpoint) => endpoint(config))
 });

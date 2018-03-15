@@ -22,7 +22,7 @@ export default config => ({productCode, variantCode, quantity}) => {
       const cartId = Session.Cart.id();
       addItem(cartId, {productCode, variantCode, quantity}, config, resolve);
     } catch (exception) {
-      createCart().then(cart => {
+      createCart(config)().then(cart => {
         addItem(cart.tokenValue, {productCode, variantCode, quantity}, config, resolve);
       });
     }

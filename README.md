@@ -97,5 +97,5 @@ const products = api.taxon().productsByTaxonSlug({slug: 'some-slug'});
 |**api.user.verifyAccount**||❌|
 |**api.user.requestPasswordReset**||❌|
 |**api.user.passwordReset**||❌|
-|**api.user.login**||❌|
+|**api.user.login**|{_username, _password}|✅|
 |**api.user.me**||❌|

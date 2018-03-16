@@ -16,25 +16,25 @@ import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 import login from './User/Login';
 
 export default ({customEndpoints = {}, ...config}) => ({
-  cart: () => ({
+  cart: {
     pickup: cartPickup(config),
     summary: cartSummary(config),
     addItem: cartAddItem(config)
-  }),
-  checkout: () => ({
+  },
+  checkout: {
     address: checkoutAddress(config),
     chooseShippingMethod: checkoutChooseShippingMethod(config),
     choosePaymentMethod: checkoutChoosePaymentMethod(config),
     availableShippingMethods: checkoutAvailableShippingMethods(config),
     availablePaymentMethods: checkoutAvailablePaymentMethods(config),
     complete: checkoutComplete(config),
-  }),
-  taxon: () => ({
+  },
+  taxon: {
     productsByTaxonSlug: taxonProductsByTaxonSlug(config),
-  }),
-  product: () => ({}),
-  user: () => ({
+  },
+  product: {},
+  user: {
     login: login(config),
-  }),
-  custom: () => mapValues(customEndpoints, (endpoint) => endpoint(config))
+  },
+  custom: mapValues(customEndpoints, (endpoint) => endpoint(config))
 });

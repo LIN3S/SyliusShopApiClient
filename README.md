@@ -35,7 +35,7 @@ For example to use the `productsByTaxonSlug` using the parameters as described i
 an object containing slug property and its value):
 
 ```js
-const products = api.taxon().productsByTaxonSlug({slug: 'some-slug'});
+const products = api.taxon.productsByTaxonSlug({slug: 'some-slug'});
 ```
 
 **Adding custom endpoints**
@@ -61,27 +61,27 @@ const api = createSyliusApiClient({
 });
 
 // Usage
-const response = api.custom().myCustomEndpoint();
+const response = api.custom.myCustomEndpoint();
 ```
 
 ## API
 
-### Cart `api.cart()`
+### Cart `api.cart`
 
 |Method|Params|Status|
 |---|---|---|
-|**api.cart().pickup**|~|✅|
-|**api.cart().summary**|~|✅|
-|**api.cart().drop**||❌|
-|**api.cart().addItem**|{productCode, variantCode, quantity}|✅|
-|**api.cart().addItems**|[{productCode, variantCode, quantity}]|❌|
-|**api.cart().changeItemQuantity**||❌|
-|**api.cart().removeItem**||❌|
-|**api.cart().estimatedShippingCost**||❌|
-|**api.cart().addCoupon**||❌|
-|**api.cart().removeCoupon**||❌|
+|**api.cart.pickup**|~|✅|
+|**api.cart.summary**|~|✅|
+|**api.cart.drop**||❌|
+|**api.cart.addItem**|{productCode, variantCode, quantity}|✅|
+|**api.cart.addItems**|[{productCode, variantCode, quantity}]|❌|
+|**api.cart.changeItemQuantity**||❌|
+|**api.cart.removeItem**||❌|
+|**api.cart.estimatedShippingCost**||❌|
+|**api.cart.addCoupon**||❌|
+|**api.cart.removeCoupon**||❌|
 
-### Checkout `api.checkout()`
+### Checkout `api.checkout`
 
 |Method|Params|Status|
 |---|---|---|
@@ -94,7 +94,7 @@ const response = api.custom().myCustomEndpoint();
 |**api.checkout.complete**|{notes}|✅|
 
 
-### Product `api.product()`
+### Product `api.product`
 
 |Method|Params|Status|
 |---|---|---|
@@ -105,7 +105,7 @@ const response = api.custom().myCustomEndpoint();
 |**api.product.addReviewBySlug**||❌|
 |**api.product.addReviewByCode**||❌|
      
-### Taxon `api.taxon()`                                                                                          
+### Taxon `api.taxon`
    
 |Method|Params|Status|
 |---|---|---|
@@ -114,7 +114,7 @@ const response = api.custom().myCustomEndpoint();
 |**api.taxon.productsByTaxonCode**||❌|
 |**api.taxon.productsByTaxonSlug**|{slug}|✅|
 
-### User `api.user()`
+### User `api.user`
 
 |Method|Params|Status|
 |---|---|---|

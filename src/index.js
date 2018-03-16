@@ -1,3 +1,5 @@
+import mapValues from 'lodash.mapvalues';
+
 import cartPickup from './Cart/Pickup';
 import cartSummary from './Cart/Summary';
 import cartAddItem from './Cart/AddItem';
@@ -13,7 +15,7 @@ import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
 import login from './User/Login';
 
-export default (config) => ({
+export default ({customEndpoints = {}, ...config}) => ({
   cart: () => ({
     pickup: cartPickup(config),
     summary: cartSummary(config),
@@ -34,4 +36,5 @@ export default (config) => ({
   user: () => ({
     login: login(config),
   }),
+  custom: () => mapValues(customEndpoints, (endpoint) => endpoint(config))
 });

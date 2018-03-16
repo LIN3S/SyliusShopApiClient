@@ -11,6 +11,8 @@ import checkoutComplete from './Checkout/Complete';
 
 import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
+import login from './User/Login';
+
 export default (config) => ({
   cart: () => ({
     pickup: cartPickup(config),
@@ -29,5 +31,7 @@ export default (config) => ({
     productsByTaxonSlug: taxonProductsByTaxonSlug(config),
   }),
   product: () => ({}),
-  user: () => ({})
+  user: () => ({
+    login: login(config),
+  }),
 });

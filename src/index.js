@@ -15,6 +15,11 @@ import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
 import login from './User/Login';
 
+import requestConfig from './requestConfig';
+import Session from './Session';
+
+export {requestConfig, Session};
+
 export default ({customEndpoints = {}, ...config}) => ({
   cart: {
     pickup: cartPickup(config),

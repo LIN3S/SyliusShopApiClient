@@ -28,3 +28,10 @@ export const contentTypeJson = () => ({
   },
   responseType: 'json'
 });
+
+export default {
+  channelParams,
+  localeParams,
+  authParams,
+  contentTypeJson
+};

@@ -46,6 +46,8 @@ An example:
 
 ```js
 import axios from 'axios';
+// You can make use of requestConfig helpers and Session values
+import {requestConfig, Session} from 'lin3s-sylius-shop-api-client';
 
 const myCustomEndpoint = config => () => new Promise(resolve => {
   axios.get(`${config.baseUrl}/shop-api/my-custom-endpoint`)

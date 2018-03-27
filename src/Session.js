@@ -54,7 +54,7 @@ const Session = {
   },
   User: {
     token: () => getCookie(USER_TOKEN_COOKIE),
-    set: () => setCookie(USER_TOKEN_COOKIE),
+    set: (token) => setCookie({name: USER_TOKEN_COOKIE, value: token}),
     remove: () => removeCookie(USER_TOKEN_COOKIE)
   }
 };

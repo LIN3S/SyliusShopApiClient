@@ -3,6 +3,7 @@ import mapValues from 'lodash.mapvalues';
 import cartPickup from './Cart/Pickup';
 import cartSummary from './Cart/Summary';
 import cartAddItem from './Cart/AddItem';
+import cartRemoveItem from './Cart/RemoveItem';
 
 import checkoutAddress from './Checkout/Address';
 import checkoutAvailableShippingMethods from './Checkout/AvailableShippingMethods';
@@ -24,7 +25,8 @@ export default ({customEndpoints = {}, ...config}) => ({
   cart: {
     pickup: cartPickup(config),
     summary: cartSummary(config),
-    addItem: cartAddItem(config)
+    addItem: cartAddItem(config),
+    removeItem: cartRemoveItem(config),
   },
   checkout: {
     address: checkoutAddress(config),

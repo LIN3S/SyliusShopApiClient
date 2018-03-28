@@ -9,7 +9,7 @@ export default config => () => {
         .then(response => resolve(response.data));
     } catch (exception) {
       if (exception instanceof CartDoesNotExist) {
-        return null;
+        return resolve(null);
       }
 
       throw exception;

@@ -7,6 +7,7 @@ To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopA
 
 * 0.4.0
     * [FEATURE] Added user me endpoint
+    * [FEATURE] Added user register endpoint
 * 0.3.0
     * [FEATURE] Added remove item from cart endpoint 
 * 0.2.2

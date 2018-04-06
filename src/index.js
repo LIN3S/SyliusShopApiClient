@@ -16,6 +16,7 @@ import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
 import userLogin from './User/Login';
 import userMe from './User/Me';
+import userRegister from './User/Register';
 
 import requestConfig from './requestConfig';
 import Session from './Session';
@@ -44,6 +45,7 @@ export default ({customEndpoints = {}, ...config}) => ({
   user: {
     login: userLogin(config),
     me: userMe(config),
+    register: userRegister(config),
   },
   custom: mapValues(customEndpoints, (endpoint) => endpoint(config))
 });

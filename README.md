@@ -120,7 +120,7 @@ const response = api.custom.myCustomEndpoint();
 
 |Method|Params|Status|
 |---|---|---|
-|**api.user.register**||❌|
+|**api.user.register**|{email, firstname, lastname, plainPassword}|✅|
 |**api.user.resendVerificationLink**||❌|
 |**api.user.verifyAccount**||❌|
 |**api.user.requestPasswordReset**||❌|

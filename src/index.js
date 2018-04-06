@@ -14,7 +14,8 @@ import checkoutComplete from './Checkout/Complete';
 
 import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
-import login from './User/Login';
+import userLogin from './User/Login';
+import userMe from './User/Me';
 
 import requestConfig from './requestConfig';
 import Session from './Session';
@@ -41,7 +42,8 @@ export default ({customEndpoints = {}, ...config}) => ({
   },
   product: {},
   user: {
-    login: login(config),
+    login: userLogin(config),
+    me: userMe(config),
   },
   custom: mapValues(customEndpoints, (endpoint) => endpoint(config))
 });

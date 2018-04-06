@@ -126,4 +126,4 @@ const response = api.custom.myCustomEndpoint();
 |**api.user.requestPasswordReset**||❌|
 |**api.user.passwordReset**||❌|
 |**api.user.login**|{_username, _password}|✅|
-|**api.user.me**||❌|
+|**api.user.me**|~|✅|

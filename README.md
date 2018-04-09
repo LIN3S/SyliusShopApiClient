@@ -19,11 +19,11 @@ with ease.
 
 * Using `import`: 
 
-`import createSyliusApiClient from 'lin3s-sylius-api-client';`
+`import createSyliusApiClient from 'lin3s-sylius-shop-api-client';`
 
 * Using `require()`:
 
-`const createSyliusApiClient = require('lin3s-sylius-api-client');`
+`const createSyliusApiClient = require('lin3s-sylius-shop-api-client');`
 
 **Initialize the client**
 

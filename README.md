@@ -27,7 +27,7 @@ with ease.
 
 **Initialize the client**
 
-`const api = createSyliusApiClient({baseUrl: 'localhost', channel: 'default'})`
+`const api = createSyliusApiClient({baseUrl: 'localhost', channel: 'default', locale: 'en_US'})`
 
 ## Usage
 
@@ -57,6 +57,7 @@ const myCustomEndpoint = config => () => new Promise(resolve => {
 const api = createSyliusApiClient({
   baseUrl: 'localhost',
   channel: 'default',
+  locale: 'en_US',
   customEndpoints: {
     myCustomEndpoint
   }

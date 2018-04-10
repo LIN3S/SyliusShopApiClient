@@ -101,7 +101,7 @@ const response = api.custom.myCustomEndpoint();
 
 |Method|Params|Status|
 |---|---|---|
-|**api.product.bySlug**||❌|
+|**api.product.bySlug**|{slug}|✅|
 |**api.product.byCode**||❌|
 |**api.product.reviewsBySlug**||❌|
 |**api.product.reviewsByCode**||❌|
@@ -112,7 +112,7 @@ const response = api.custom.myCustomEndpoint();
    
 |Method|Params|Status|
 |---|---|---|
-|**api.taxon.all**||❌|
+|**api.taxon.all**||✅|
 |**api.taxon.byCode**||❌|
 |**api.taxon.productsByTaxonCode**||❌|
 |**api.taxon.productsByTaxonSlug**|{slug}|✅|

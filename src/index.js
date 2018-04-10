@@ -4,6 +4,7 @@ import cartPickup from './Cart/Pickup';
 import cartSummary from './Cart/Summary';
 import cartAddItem from './Cart/AddItem';
 import cartRemoveItem from './Cart/RemoveItem';
+import cartChangeItemQuantity from './Cart/ChangeItemQuantity';
 
 import checkoutAddress from './Checkout/Address';
 import checkoutAvailableShippingMethods from './Checkout/AvailableShippingMethods';
@@ -29,6 +30,7 @@ export default ({customEndpoints = {}, ...config}) => ({
     summary: cartSummary(config),
     addItem: cartAddItem(config),
     removeItem: cartRemoveItem(config),
+    changeItemQuantity: cartChangeItemQuantity(config),
   },
   checkout: {
     address: checkoutAddress(config),

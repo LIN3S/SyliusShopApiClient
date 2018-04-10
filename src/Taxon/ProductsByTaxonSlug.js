@@ -4,13 +4,14 @@ import merge from 'lodash.merge';
 import {channelParams, localeParams} from '../requestConfig';
 
 export default config => ({slug}) => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const headers = merge(
       channelParams(config),
       localeParams(config),
     );
 
     axios.get(`${config.baseUrl}/shop-api/taxon-products-by-slug/${slug}`, headers)
-      .then(response => resolve(response.data));
+      .then(response => resolve(response.data))
+      .catch(error => reject(error));
   });
 };

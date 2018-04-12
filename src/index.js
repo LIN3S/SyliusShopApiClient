@@ -13,6 +13,9 @@ import checkoutChoosePaymentMethod from './Checkout/ChoosePaymentMethod';
 import checkoutChooseShippingMethod from './Checkout/ChooseShippingMethod';
 import checkoutComplete from './Checkout/Complete';
 
+import productBySlug from './Product/BySlug';
+
+import taxonAll from './Taxon/All';
 import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 
 import userLogin from './User/Login';
@@ -41,9 +44,12 @@ export default ({customEndpoints = {}, ...config}) => ({
     complete: checkoutComplete(config),
   },
   taxon: {
+    all: taxonAll(config),
     productsByTaxonSlug: taxonProductsByTaxonSlug(config),
   },
-  product: {},
+  product: {
+    bySlug: productBySlug(config),
+  },
   user: {
     login: userLogin(config),
     me: userMe(config),

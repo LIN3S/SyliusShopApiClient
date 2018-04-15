@@ -78,7 +78,7 @@ const response = api.custom.myCustomEndpoint();
 |**api.cart.drop**||❌|
 |**api.cart.addItem**|{productCode, variantCode, quantity}|✅|
 |**api.cart.addItems**|[{productCode, variantCode, quantity}]|❌|
-|**api.cart.changeItemQuantity**||❌|
+|**api.cart.changeItemQuantity**||✅|
 |**api.cart.removeItem**|{orderItemId}|✅|
 |**api.cart.estimatedShippingCost**||❌|
 |**api.cart.addCoupon**||❌|

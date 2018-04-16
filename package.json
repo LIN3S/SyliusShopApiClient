@@ -50,6 +50,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash.mapvalues": "^4.6.0",
+    "lodash.merge": "^4.6.1",
     "react-cookies": "^0.1.0",
     "uuid": "^3.2.1"
   }

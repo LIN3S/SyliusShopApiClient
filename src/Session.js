@@ -1,11 +1,10 @@
 import uuid from 'uuid';
-import cookie from "react-cookies";
+import cookie from 'react-cookies';
 
 const CART_TOKEN_COOKIE = 'cart-session-id';
 const USER_TOKEN_COOKIE = 'user-token';
 
-// eslint-disable-next-line no-restricted-globals
-const setCookie = ({name, value = '', expiration, domain = location.hostname, path = '/'} = {}) => {
+const setCookie = ({name, value = '', expiration, domain, path = '/'} = {}) => {
   let expires;
 
   if (expiration) {
@@ -22,7 +21,7 @@ const setCookie = ({name, value = '', expiration, domain = location.hostname, pa
   });
 };
 const getCookie = name => cookie.load(name);
-const removeCookie = (name, path = '/') => cookie.remove(name, {path});
+const removeCookie = (name, {domain, path = '/'} = {}) => cookie.remove(name, {domain, path});
 
 export class CartDoesNotExist {
   message = 'Cart has not been initialized';

@@ -1,6 +1,6 @@
 {
   "name": "lin3s-sylius-shop-api-client",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "LIN3S",
   "license": "MIT",
   "description": "JavaScript client on top of SyliusShopApiPlugin to build integrations with ease.",

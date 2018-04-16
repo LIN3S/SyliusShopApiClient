@@ -7,6 +7,11 @@ To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopA
 
 * 0.6.0
     * [FIX] Cookies not being deleted properly due to domain mismatch. Session API changed due to those changes
+    * [BC Break] `Session.removeCookie` accepts a second parameter type object instead of directly `path`.
+    Instead of `removeCookie('name', '/path')` it will be `removeCookie('name', {path: '/path'})`
+    * [BC Break] `Session.setCookie` does not have a default value for `domain`
+* 0.5.0
+    * [FEATURE] Added change item quantity endpoint
 * 0.4.2
     * [FIX] Add error control to products by taxon slug method
 * 0.4.1

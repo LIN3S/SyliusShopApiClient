@@ -16,14 +16,14 @@ const addItem = (cartId, data, config, resolve) => {
   ).then(response => resolve(response.data));
 };
 
-export default config => ({productCode, variantCode, quantity}) => {
+export default config => ({productCode, variantCode, quantity, ...rest}) => {
   return new Promise(resolve => {
     try {
       const cartId = Session.Cart.id();
-      addItem(cartId, {productCode, variantCode, quantity}, config, resolve);
+      addItem(cartId, {productCode, variantCode, quantity, ...rest}, config, resolve);
     } catch (exception) {
       createCart(config)().then(cart => {
-        addItem(cart.tokenValue, {productCode, variantCode, quantity}, config, resolve);
+        addItem(cart.tokenValue, {productCode, variantCode, quantity, ...rest}, config, resolve);
       });
     }
   });

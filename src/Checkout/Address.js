@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 import Session from '../Session';
-import {contentTypeJson} from '../requestConfig';
+import {authParams, contentTypeJson} from '../requestConfig';
 
 export default config => ({shippingAddress, billingAddress = {}}) => {
   return new Promise(resolve => {
     const headers = {
       ...contentTypeJson(config),
+      ...authParams(config),
     };
 
     axios.put(

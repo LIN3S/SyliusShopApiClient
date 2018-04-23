@@ -5,6 +5,8 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/SyliusShopApiClient/commit/XXX where XXX is the change hash 
 To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopApiClient/compare/v0.2.0...v0.3.0
 
+* 0.6.1
+    * [FIX] Checkout address method now includes auth headers
 * 0.6.0
     * [FIX] Cookies not being deleted properly due to domain mismatch. Session API changed due to those changes
     * [BC Break] `Session.removeCookie` accepts a second parameter type object instead of directly `path`.

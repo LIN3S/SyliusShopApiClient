@@ -27,7 +27,7 @@ export class CartDoesNotExist {
   message = 'Cart has not been initialized';
 }
 
-const Session = {
+const session = config => ({
   Cart: {
     id: () => {
       const id = getCookie(CART_TOKEN_COOKIE);
@@ -40,22 +40,54 @@ const Session = {
     },
     generateId: () => {
       const newSessionId = uuid();
-
-      setCookie({
+      const params = {
         name: CART_TOKEN_COOKIE,
         value: newSessionId,
         expiration: 604800000 // 7days
-      });
+      };
+
+      if (config.cookieDomain) {
+        params.domain = config.cookieDomain;
+      }
+
+      setCookie(params);
 
       return newSessionId;
     },
-    remove: () => removeCookie(CART_TOKEN_COOKIE)
+    remove: () => {
+      const params = {};
+
+      if (config.cookieDomain) {
+        params.domain = config.cookieDomain;
+      }
+
+      return removeCookie(CART_TOKEN_COOKIE, params);
+    }
   },
   User: {
     token: () => getCookie(USER_TOKEN_COOKIE),
-    set: (token) => setCookie({name: USER_TOKEN_COOKIE, value: token}),
-    remove: () => removeCookie(USER_TOKEN_COOKIE)
-  }
-};
+    set: (token) => {
+      const params = {
+        name: USER_TOKEN_COOKIE,
+        value: token
+      };
 
-export default Session;
+      if (config.cookieDomain) {
+        params.domain = config.cookieDomain;
+      }
+
+      setCookie(params);
+    },
+    remove: () => {
+      const params = {};
+
+      if (config.cookieDomain) {
+        params.domain = config.cookieDomain;
+      }
+
+      return removeCookie(USER_TOKEN_COOKIE, params);
+    }
+  }
+});
+
+export default session;

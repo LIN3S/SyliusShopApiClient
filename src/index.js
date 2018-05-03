@@ -23,11 +23,12 @@ import userMe from './User/Me';
 import userRegister from './User/Register';
 
 import requestConfig from './requestConfig';
-import Session from './Session';
+import session from './session';
 
-export {requestConfig, Session};
+export {requestConfig};
 
 export default ({customEndpoints = {}, ...config}) => ({
+  Session: session(config),
   cart: {
     pickup: cartPickup(config),
     summary: cartSummary(config),

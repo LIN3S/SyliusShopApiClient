@@ -1,7 +1,7 @@
 import axios from 'axios';
 import merge from 'lodash.merge';
 
-import Session from '../Session';
+import session from '../session';
 import {authParams, contentTypeJson} from '../requestConfig';
 
 export default config => ({shippingAddress, billingAddress = {}}) => {
@@ -12,7 +12,7 @@ export default config => ({shippingAddress, billingAddress = {}}) => {
     );
 
     axios.put(
-      `${config.baseUrl}/shop-api/checkout/${Session.Cart.id()}/address`,
+      `${config.baseUrl}/shop-api/checkout/${session(config).Cart.id()}/address`,
       JSON.stringify({shippingAddress, billingAddress}),
       headers
     ).then(response => resolve(response.data));

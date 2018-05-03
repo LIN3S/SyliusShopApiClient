@@ -1,4 +1,4 @@
-import Session from './Session';
+import session from './session';
 
 export const channelParams = (config) => ({
   params: {
@@ -12,8 +12,8 @@ export const localeParams = (config) => ({
   }
 });
 
-export const authParams = () => {
-  const userToken = Session.User.token();
+export const authParams = (config) => {
+  const userToken = session(config).User.token();
 
   return userToken ? {
     headers: {

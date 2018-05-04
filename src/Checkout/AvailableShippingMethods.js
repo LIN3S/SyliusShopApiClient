@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-import Session from '../Session';
+import session from '../session';
 
 export default config => () => {
   return new Promise(resolve => {
-    axios.get(`${config.baseUrl}/shop-api/checkout/${Session.Cart.id()}/shipping`)
+    axios.get(`${config.baseUrl}/shop-api/checkout/${session(config).Cart.id()}/shipping`)
       .then(response => {
         if (response.data.shipments[0].length === 0) {
           return resolve([]);

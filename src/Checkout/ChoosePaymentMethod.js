@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import Session from "../Session";
+import session from "../session";
 import {contentTypeJson} from '../requestConfig';
 
 export default config => ({paymentId, methodCode}) => {
@@ -10,7 +10,7 @@ export default config => ({paymentId, methodCode}) => {
     };
 
     axios.put(
-      `${config.baseUrl}/shop-api/checkout/${Session.Cart.id()}/payment/${paymentId}`,
+      `${config.baseUrl}/shop-api/checkout/${session(config).Cart.id()}/payment/${paymentId}`,
       JSON.stringify({method: methodCode}),
       headers
     ).then(response => resolve(response.data));

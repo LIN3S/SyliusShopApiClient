@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import Session from "../Session";
+import session from "../session";
 import createCart from './Pickup';
 import {contentTypeJson} from '../requestConfig';
 
@@ -19,7 +19,7 @@ const addItem = (cartId, data, config, resolve) => {
 export default config => ({productCode, variantCode, quantity, ...rest}) => {
   return new Promise(resolve => {
     try {
-      const cartId = Session.Cart.id();
+      const cartId = session(config).Cart.id();
       addItem(cartId, {productCode, variantCode, quantity, ...rest}, config, resolve);
     } catch (exception) {
       createCart(config)().then(cart => {

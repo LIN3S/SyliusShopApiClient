@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-import Session from '../Session';
+import session from '../session';
 
 export default config => () => {
   return new Promise(resolve => {
-    axios.get(`${config.baseUrl}/shop-api/checkout/${Session.Cart.id()}/payment`)
+    axios.get(`${config.baseUrl}/shop-api/checkout/${session(config).Cart.id()}/payment`)
       .then(response => {
         const paymentMethods = response.data.payments[0].methods;
 

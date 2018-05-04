@@ -1,7 +1,7 @@
 import axios from 'axios';
 import merge from 'lodash.merge';
 
-import Session from "../Session";
+import session from "../session";
 import {authParams, contentTypeJson} from '../requestConfig';
 
 export default config => ({orderItemId, quantity, ...rest}) => {
@@ -11,7 +11,7 @@ export default config => ({orderItemId, quantity, ...rest}) => {
       contentTypeJson(config),
     );
 
-    axios.put(`${config.baseUrl}/shop-api/carts/${Session.Cart.id()}/items/${orderItemId}`, {
+    axios.put(`${config.baseUrl}/shop-api/carts/${session(config).Cart.id()}/items/${orderItemId}`, {
       quantity,
       ...rest
     }, headers)

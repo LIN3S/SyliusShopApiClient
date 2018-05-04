@@ -27,7 +27,14 @@ with ease.
 
 **Initialize the client**
 
-`const api = createSyliusApiClient({baseUrl: 'localhost', channel: 'default', locale: 'en_US'})`
+```js
+const api = createSyliusApiClient({
+    baseUrl: 'localhost',
+    channel: 'default',
+    cookieDomain: '.myapp.com',
+    locale: 'en_US',
+})
+```
 
 ## Usage
 
@@ -46,8 +53,8 @@ An example:
 
 ```js
 import axios from 'axios';
-// You can make use of requestConfig helpers and Session values
-import {requestConfig, Session} from 'lin3s-sylius-shop-api-client';
+// You can make use of requestConfig helpers and session values
+import createSyliusShopApiClient, {requestConfig} from 'lin3s-sylius-shop-api-client';
 
 const myCustomEndpoint = config => () => new Promise(resolve => {
   axios.get(`${config.baseUrl}/shop-api/my-custom-endpoint`)
@@ -65,6 +72,7 @@ const api = createSyliusApiClient({
 
 // Usage
 const response = api.custom.myCustomEndpoint();
+api.Session.Cart.remove();
 ```
 
 ## API

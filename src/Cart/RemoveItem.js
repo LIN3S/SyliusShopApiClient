@@ -1,7 +1,7 @@
 import axios from 'axios';
 import merge from 'lodash.merge';
 
-import Session from "../Session";
+import session from "../session";
 import {authParams, contentTypeJson} from '../requestConfig';
 
 export default config => ({orderItemId}) => {
@@ -11,7 +11,7 @@ export default config => ({orderItemId}) => {
       contentTypeJson(config),
     );
 
-    axios.delete(`${config.baseUrl}/shop-api/carts/${Session.Cart.id()}/items/${orderItemId}`, {}, headers)
+    axios.delete(`${config.baseUrl}/shop-api/carts/${session(config).Cart.id()}/items/${orderItemId}`, {}, headers)
       .then(response => resolve(response.data));
   });
 };

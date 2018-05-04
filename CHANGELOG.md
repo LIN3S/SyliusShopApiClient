@@ -5,6 +5,12 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/SyliusShopApiClient/commit/XXX where XXX is the change hash 
 To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopApiClient/compare/v0.2.0...v0.3.0
 
+* 0.7.0
+    * [FEATURE] Session will receive config params and will be exposed from index's default export
+    * [FEATURE] Config will accept a new parameters `cookieDomain` that will be cookie's domain if any
+    * [BC Break] Session can't be imported directly, but as a part of default export:
+    `const api = createSyliusApiClient({...}); api.Session.removeCookie(...)`
+    * [BC Break] `requestConfig.authParams` should receive now `config` parameter
 * 0.6.4
     * [FIX] Capture not found exception in cart summary
 * 0.6.3

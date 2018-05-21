@@ -33,6 +33,8 @@ const api = createSyliusApiClient({
     channel: 'default',
     cookieDomain: '.myapp.com',
     locale: 'en_US',
+    cartCookieExpiration: 604800000,
+    userCookieExpiration: 2592000000,
 })
 ```
 

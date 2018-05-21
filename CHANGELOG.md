@@ -5,6 +5,8 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/SyliusShopApiClient/commit/XXX where XXX is the change hash 
 To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopApiClient/compare/v0.2.0...v0.3.0
 
+* 0.7.2
+    * [FEATURE] Added config values for cookie expiration: `cartCookieExpiration` and `userCookieExpiration` in milliseconds
 * 0.7.1
     * [FIX] Added missing pagination params to Product by taxon endpoint
 * 0.7.0

@@ -43,7 +43,7 @@ const session = config => ({
       const params = {
         name: CART_TOKEN_COOKIE,
         value: newSessionId,
-        expiration: 604800000 // 7days
+        expiration: config.cartCookieExpiration || 604800000 // 7 days
       };
 
       if (config.cookieDomain) {
@@ -69,7 +69,8 @@ const session = config => ({
     set: (token) => {
       const params = {
         name: USER_TOKEN_COOKIE,
-        value: token
+        value: token,
+        expiration: config.userCookieExpiration || 2592000000 // 1 month
       };
 
       if (config.cookieDomain) {

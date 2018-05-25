@@ -1,13 +1,15 @@
 import axios from 'axios';
+import merge from 'lodash.merge';
 
 import session from "../session";
 import {contentTypeJson} from '../requestConfig';
 
 export default config => ({shipmentId, methodCode}) => {
   return new Promise(resolve => {
-    const headers = {
-      ...contentTypeJson(config),
-    };
+    const headers = merge(
+      authParams(config),
+      contentTypeJson(config)
+    );
 
     axios.put(
       `${config.baseUrl}/shop-api/checkout/${session(config).Cart.id()}/shipping/${shipmentId}`,

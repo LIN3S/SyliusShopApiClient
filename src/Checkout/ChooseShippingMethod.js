@@ -2,7 +2,7 @@ import axios from 'axios';
 import merge from 'lodash.merge';
 
 import session from "../session";
-import {contentTypeJson} from '../requestConfig';
+import {authParams, contentTypeJson} from '../requestConfig';
 
 export default config => ({shipmentId, methodCode}) => {
   return new Promise(resolve => {

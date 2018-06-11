@@ -6,7 +6,7 @@ import session from '../session';
 import {authParams, contentTypeJson} from '../requestConfig';
 
 export default (config) => ({notes, ...rest}) => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const headers = merge(
       authParams(config),
       contentTypeJson(config)
@@ -16,6 +16,8 @@ export default (config) => ({notes, ...rest}) => {
       `${config.baseUrl}/shop-api/checkout/${session(config).Cart.id()}/complete`,
       {notes, ...rest},
       headers
-    ).then(response => resolve(response.data));
+    )
+      .then(response => resolve(response.data))
+      .catch(error => reject(error));
   });
 };

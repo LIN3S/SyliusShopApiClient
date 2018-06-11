@@ -5,6 +5,8 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/SyliusShopApiClient/commit/XXX where XXX is the change hash 
 To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopApiClient/compare/v0.2.0...v0.3.0
 
+* 0.7.6
+    * [FIX] Add error control to checkout complete method
 * 0.7.5
     * [FIX] Added auth params to checkout choose payment method
 * 0.7.4

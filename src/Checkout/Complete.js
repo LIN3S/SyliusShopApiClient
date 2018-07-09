@@ -3,12 +3,13 @@ import merge from 'lodash.merge';
 
 import session from '../session';
 
-import {authParams, contentTypeJson} from '../requestConfig';
+import {authParams, contentTypeJson, localeParams} from '../requestConfig';
 
 export default (config) => ({notes, ...rest}) => {
   return new Promise((resolve, reject) => {
     const headers = merge(
       authParams(config),
+      localeParams(config),
       contentTypeJson(config)
     );
 

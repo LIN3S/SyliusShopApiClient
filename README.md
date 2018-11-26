@@ -35,6 +35,7 @@ const api = createSyliusApiClient({
     locale: 'en_US',
     cartCookieExpiration: 604800000,
     userCookieExpiration: 2592000000,
+    cartTokenCookie: 'cart-token',
 })
 ```
 

@@ -27,68 +27,72 @@ export class CartDoesNotExist {
   message = 'Cart has not been initialized';
 }
 
-const session = config => ({
-  Cart: {
-    id: () => {
-      const id = getCookie(CART_TOKEN_COOKIE);
+const session = config => {
+  const cartTokenCookie = config.cartTokenCookie || CART_TOKEN_COOKIE;
 
-      if (typeof id === 'undefined') {
-        throw new CartDoesNotExist();
+  return ({
+    Cart: {
+      id: () => {
+        const id = getCookie(cartTokenCookie);
+
+        if (typeof id === 'undefined') {
+          throw new CartDoesNotExist();
+        }
+
+        return id;
+      },
+      generateId: () => {
+        const newSessionId = uuid();
+        const params = {
+          name: cartTokenCookie,
+          value: newSessionId,
+          expiration: config.cartCookieExpiration || 604800000 // 7 days
+        };
+
+        if (config.cookieDomain) {
+          params.domain = config.cookieDomain;
+        }
+
+        setCookie(params);
+
+        return newSessionId;
+      },
+      remove: () => {
+        const params = {};
+
+        if (config.cookieDomain) {
+          params.domain = config.cookieDomain;
+        }
+
+        return removeCookie(cartTokenCookie, params);
       }
-
-      return id;
     },
-    generateId: () => {
-      const newSessionId = uuid();
-      const params = {
-        name: CART_TOKEN_COOKIE,
-        value: newSessionId,
-        expiration: config.cartCookieExpiration || 604800000 // 7 days
-      };
+    User: {
+      token: () => getCookie(USER_TOKEN_COOKIE),
+      set: (token) => {
+        const params = {
+          name: USER_TOKEN_COOKIE,
+          value: token,
+          expiration: config.userCookieExpiration || 2592000000 // 1 month
+        };
 
-      if (config.cookieDomain) {
-        params.domain = config.cookieDomain;
+        if (config.cookieDomain) {
+          params.domain = config.cookieDomain;
+        }
+
+        setCookie(params);
+      },
+      remove: () => {
+        const params = {};
+
+        if (config.cookieDomain) {
+          params.domain = config.cookieDomain;
+        }
+
+        return removeCookie(USER_TOKEN_COOKIE, params);
       }
-
-      setCookie(params);
-
-      return newSessionId;
-    },
-    remove: () => {
-      const params = {};
-
-      if (config.cookieDomain) {
-        params.domain = config.cookieDomain;
-      }
-
-      return removeCookie(CART_TOKEN_COOKIE, params);
     }
-  },
-  User: {
-    token: () => getCookie(USER_TOKEN_COOKIE),
-    set: (token) => {
-      const params = {
-        name: USER_TOKEN_COOKIE,
-        value: token,
-        expiration: config.userCookieExpiration || 2592000000 // 1 month
-      };
-
-      if (config.cookieDomain) {
-        params.domain = config.cookieDomain;
-      }
-
-      setCookie(params);
-    },
-    remove: () => {
-      const params = {};
-
-      if (config.cookieDomain) {
-        params.domain = config.cookieDomain;
-      }
-
-      return removeCookie(USER_TOKEN_COOKIE, params);
-    }
-  }
-});
+  });
+};
 
 export default session;

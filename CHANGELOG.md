@@ -8,6 +8,8 @@ To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopA
 * 0.7.7
     * [FEATURE] Add locale params to checkout complete method
 * 0.7.6
+    * [FEATURE] Config will accept a new parameters `cartTokenCookie` that will be cart cookie's name if any
+* 0.7.6
     * [FIX] Add error control to checkout complete method
 * 0.7.5
     * [FIX] Added auth params to checkout choose payment method

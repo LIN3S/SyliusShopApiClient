@@ -5,10 +5,10 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/SyliusShopApiClient/commit/XXX where XXX is the change hash 
 To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopApiClient/compare/v0.2.0...v0.3.0
 
+* 0.8.0
+    * [FEATURE] Config will accept a new parameters `cartTokenCookie` that will be cart cookie's name if any
 * 0.7.7
     * [FEATURE] Add locale params to checkout complete method
-* 0.7.6
-    * [FEATURE] Config will accept a new parameters `cartTokenCookie` that will be cart cookie's name if any
 * 0.7.6
     * [FIX] Add error control to checkout complete method
 * 0.7.5

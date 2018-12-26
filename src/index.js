@@ -21,6 +21,8 @@ import taxonProductsByTaxonSlug from './Taxon/ProductsByTaxonSlug';
 import userLogin from './User/Login';
 import userMe from './User/Me';
 import userRegister from './User/Register';
+import userPasswordReset from './User/PasswordReset';
+import userRequestPasswordReset from './User/RequestPasswordReset';
 
 import requestConfig from './requestConfig';
 import session from './session';
@@ -55,6 +57,8 @@ export default ({customEndpoints = {}, ...config}) => ({
     login: userLogin(config),
     me: userMe(config),
     register: userRegister(config),
+    requestPasswordReset: userRequestPasswordReset(config),
+    passwordReset: userPasswordReset(config),
   },
   custom: mapValues(customEndpoints, (endpoint) => endpoint(config))
 });

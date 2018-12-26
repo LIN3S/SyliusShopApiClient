@@ -135,7 +135,7 @@ api.Session.Cart.remove();
 |**api.user.register**|{email, firstname, lastname, plainPassword}|✅|
 |**api.user.resendVerificationLink**||❌|
 |**api.user.verifyAccount**||❌|
-|**api.user.requestPasswordReset**||❌|
-|**api.user.passwordReset**||❌|
+|**api.user.requestPasswordReset**|{email}|✅|
+|**api.user.passwordReset**|{password}|✅|
 |**api.user.login**|{_username, _password}|✅|
 |**api.user.me**|~|✅|

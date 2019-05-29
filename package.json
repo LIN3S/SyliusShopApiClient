@@ -1,6 +1,6 @@
 {
   "name": "lin3s-sylius-shop-api-client",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "author": "LIN3S",
   "license": "MIT",
   "description": "JavaScript client on top of SyliusShopApiPlugin to build integrations with ease.",
@@ -13,6 +13,13 @@
     "client"
   ],
   "main": "dist/common/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LIN3S/SyliusShopApiClient"
+  },
+  "bugs": {
+    "url": "https://github.com/LIN3S/SyliusShopApiClient/issues"
+  },
   "files": [
     "dist",
     "LICENSE",

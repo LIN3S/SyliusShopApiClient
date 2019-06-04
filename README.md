@@ -92,8 +92,8 @@ api.Session.Cart.remove();
 |**api.cart.changeItemQuantity**||✅|
 |**api.cart.removeItem**|{orderItemId}|✅|
 |**api.cart.estimatedShippingCost**||❌|
-|**api.cart.addCoupon**||❌|
-|**api.cart.removeCoupon**||❌|
+|**api.cart.addCoupon**||✅|
+|**api.cart.removeCoupon**||✅|
 
 ### Checkout `api.checkout`
 

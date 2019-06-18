@@ -85,7 +85,7 @@ api.Session.Cart.remove();
 |Method|Params|Status|
 |---|---|---|
 |**api.cart.pickup**|~|✅|
-|**api.cart.summary**|~|✅|
+|**api.cart.summary**|{cartId} (optional)|✅|
 |**api.cart.drop**||❌|
 |**api.cart.addItem**|{productCode, variantCode, quantity}|✅|
 |**api.cart.addItems**|[{productCode, variantCode, quantity}]|❌|

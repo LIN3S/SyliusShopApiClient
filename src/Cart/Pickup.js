@@ -8,6 +8,7 @@ export default config => () => {
   return new Promise(resolve => {
     const data = JSON.stringify({
       channel: config.channel,
+      locale: config.locale
     });
 
     const headers = merge(

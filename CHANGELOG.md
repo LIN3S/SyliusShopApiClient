@@ -5,6 +5,8 @@ This changelog references the relevant changes done between versions.
 To get the diff for a specific change, go to https://github.com/LIN3S/SyliusShopApiClient/commit/XXX where XXX is the change hash 
 To get the diff between two versions, go to https://github.com/LIN3S/SyliusShopApiClient/compare/v0.2.0...v0.3.0
 
+* 0.9.4
+    * [FEATURE] Add locale to Pickup cart request
 * 0.9.3
     * [FEATURE] Get cart summary by cart id. Defaults to session token
 * 0.9.2
